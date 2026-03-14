@@ -1,0 +1,68 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="ERROR 404">
+  <div class="error-container">
+    <div class="massive-text">404</div>
+    <div class="sub-text">
+      ESTE LUGAR ESTÁ VACÍO. NO HAY NADA AQUÍ. TE HAS PERDIDO EN LA NADA.
+    </div>
+
+    <a href="/" class="return-button">SALIR DE ESTE ABISMO</a>
+  </div>
+</MainLayout>
+
+<style>
+  .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    text-align: center;
+    border: var(--border-thick);
+    padding: 2rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .massive-text {
+    font-size: clamp(8rem, 30vw, 25rem);
+    font-weight: 900;
+    line-height: 0.8;
+    margin: 0;
+    letter-spacing: -0.05em;
+    color: var(--accent);
+    /* Distorting text for brutalist glitch effect */
+    transform: scale(1.1) skewX(-10deg);
+  }
+
+  .sub-text {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 2rem 0 4rem 0;
+    max-width: 80%;
+    line-height: 1.1;
+  }
+
+  .return-button {
+    font-size: 2.5rem;
+    padding: 1.5rem 3rem;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: var(--border-thick);
+    border-color: var(--bg-color);
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  .return-button:hover {
+    background-color: var(--accent);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+  }
+</style>

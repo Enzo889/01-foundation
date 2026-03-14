@@ -1,0 +1,135 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Contact">
+  <h1 transition:name="title">CONTACTO</h1>
+
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2>¿QUIERES UNA WEB ASÍ?</h2>
+      <p>
+        SI BUSCAS UNA ESTRUCTURA BRUTAL Y LAS FUNDACIONES DE ASTRO PARA TU
+        PROYECTO, PONTE EN CONTACTO.
+      </p>
+
+      <a href="mailto:enzobustamante895@gmail.com" class="email-link"
+        >ESCRÍBEME</a
+      >
+      <p
+        style="margin-top: 1rem; font-weight: bold; overflow-wrap: break-word;"
+      >
+        enzobustamante895@gmail.com
+      </p>
+    </div>
+
+    <!-- The form points to mailto so it actually uses the email -->
+    <form
+      class="brutalist-form"
+      action="mailto:enzobustamante895@gmail.com"
+      method="GET"
+      enctype="text/plain"
+    >
+      <div class="form-group">
+        <label for="subject">ASUNTO</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          value="Quiero una web brutalista con Astro"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="body">TU PENSAMIENTO</label>
+        <textarea
+          id="body"
+          name="body"
+          rows="5"
+          placeholder="CUÉNTAME TU IDEA..."
+          required></textarea>
+      </div>
+
+      <button type="submit">ABRIR CORREO</button>
+    </form>
+  </div>
+</MainLayout>
+
+<style>
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 4rem;
+  }
+
+  @media (max-width: 900px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .email-link {
+    display: inline-block;
+    font-size: clamp(2rem, 5vw, 4rem);
+    background-color: var(--accent);
+    color: var(--bg-color);
+    padding: 1rem;
+    border: var(--border-thick);
+    margin-top: 2rem;
+    word-break: break-all;
+  }
+
+  .email-link:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  .brutalist-form {
+    border: var(--border-thick);
+    padding: 2rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  label {
+    display: block;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  input,
+  textarea {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: none;
+    border-left: 10px solid var(--accent);
+  }
+
+  input:focus,
+  textarea:focus {
+    background-color: white;
+    color: black;
+    border-left: 20px solid var(--accent);
+  }
+
+  button {
+    background-color: var(--accent);
+    color: var(--bg-color);
+    border: none;
+    font-size: 2rem;
+    padding: 1.5rem;
+  }
+
+  button:hover {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+</style>

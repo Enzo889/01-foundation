@@ -1,0 +1,52 @@
+---
+
+---
+
+<nav id="top-nav">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/contact">Contact</a>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: var(--border-thick);
+    margin-bottom: 4rem;
+  }
+
+  a {
+    flex: 1;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-bottom: none;
+    border-right: var(--border-thick);
+    transition: all 0.2s ease;
+  }
+
+  a:last-child {
+    border-right: none;
+  }
+
+  a:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+    }
+    a {
+      border-right: none;
+      border-bottom: var(--border-thick);
+    }
+    a:last-child {
+      border-bottom: none;
+    }
+  }
+</style>

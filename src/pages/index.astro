@@ -1,17 +1,95 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
+//server only
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Home Page">
+  <div class="hero">
+    <h1 transition:name="title">
+      BASES<br />SÓLIDAS<br />CON <span class="highlight">ASTRO</span>
+    </h1>
+  </div>
+
+  <div class="manifesto">
+    <h2>
+      LAS FUNDACIONES DE LA WEB MODERNA. CERO JAVASCRIPT POR DEFECTO.
+      RENDIMIENTO EXTREMO. ARQUITECTURA EN ISLAS.
+    </h2>
+    <p>
+      Construir sobre Astro es construir sobre cimientos indestructibles. Menos
+      carga interactiva significa mayor velocidad. Aquí exploramos los
+      principios fundamentales del framework.
+    </p>
+  </div>
+
+  <div class="time-block">
+    <p class="time-label">TIEMPO DEL SERVIDOR:</p>
+    <p class="time-value">{new Date().toLocaleTimeString()}</p>
+
+    <p class="time-label">TIEMPO EN CLIENTE:</p>
+    <p id="current-time" class="time-value">CARGANDO...</p>
+  </div>
+
+  <script>
+    //client only
+    const currentTime = document.getElementById(
+      "current-time",
+    ) as HTMLParagraphElement;
+
+    // Update every second for dynamic feel in a static block
+    setInterval(() => {
+      currentTime.innerText = new Date().toLocaleTimeString();
+    }, 1000);
+    currentTime.innerText = new Date().toLocaleTimeString();
+  </script>
+</MainLayout>
+
+<style>
+  .hero {
+    border-bottom: var(--border-thick);
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .highlight {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 0 0.2em;
+    display: inline-block;
+    transform: rotate(-2deg);
+  }
+
+  .manifesto {
+    max-width: 100%;
+    margin-bottom: 4rem;
+  }
+
+  .manifesto h2 {
+    font-size: clamp(2rem, 6vw, 5rem);
+    letter-spacing: -0.02em;
+    border: none;
+    line-height: 0.95;
+    margin-bottom: 1rem;
+  }
+
+  .time-block {
+    border: var(--border-thick);
+    padding: 2rem;
+    background-color: var(--accent);
+    color: var(--bg-color);
+  }
+
+  .time-label {
+    font-weight: 900;
+    margin: 0;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--bg-color);
+  }
+
+  .time-value {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    margin: 0 0 2rem 0;
+    line-height: 1;
+  }
+</style>
